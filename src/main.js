@@ -9,6 +9,7 @@ Vue.config.productionTip = false
 
 import App from './App'
 import Home from './components/Home/Home.vue'
+import Login from './components/Login/Login.vue'
 
 
 //导入Bootstrap
@@ -22,6 +23,9 @@ Vue.use(VueResource)
 const routes = [{
   path: '/',
   component: Home,
+}, {
+  path: '/login',
+  component: Login,
 }]
 
 const router = new VueRouter({

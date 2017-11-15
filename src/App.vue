@@ -23,11 +23,11 @@
               <img class="avatar" src="./assets/logo.png"/> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="dropdown-header">已登录 : {{userInfo.name}} ({{ userInfo.studentId }})</li>
+              <li class="dropdown-header">已登录 : {{userInfo.userName}} ({{ userInfo.studentId }})</li>
               <li class="divider"></li>
               <li class="dropdown-header">账号管理</li>
               <li><router-link to="/reset-pwd">修改密码</router-link></li>
-              <li><a @click="logout()">退出登录</a></li>
+              <li><a class="dropdown-item" @click="logout()">退出登录</a></li>
             </ul>
           </li>
           <li v-if="!isLogin"><router-link to="/login">登录</router-link></li>
@@ -72,5 +72,8 @@ export default {
 }
 .student-id {
   margin-left: 20px;
+}
+.dropdown-item {
+  cursor: pointer;
 }
 </style>

@@ -17,8 +17,13 @@ export default {
 				if (res.status === 0) {
 					typeof param.success === 'function' && param.success(res.data, res.msg);
 				}
+				//强制去登录
 				else if (res.status === 10) {
-					window.location.href = "./login?redirect=" + encodeURIComponent(window.location.href);
+					window.location.href = './login'
+				}
+				//服务器请求成功，但是存在请求参数或者服务器异常等情况
+				else if (res.status === 1) {
+					typeof param.success === 'function' && param.error(res.msg);
 				}
 			},
 			error		: function (err) {
@@ -28,5 +33,19 @@ export default {
 	},
 	getServerUrl: function (path) {
 		return conf.serverHost + path
+	},
+
+	//验证字段
+	valid : function(val, type) {
+		const value = $.trim(val)
+		if ('require' === type) {
+			return !!value;
+		}
+		if ('studentId' === type) {
+			return /^\d{10}$/.test(value)
+		}
+		if ('email' === type) {
+			return /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(value)
+		}
 	}
 }

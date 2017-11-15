@@ -5,11 +5,25 @@ import actions from './actions'
 
 Vue.use(Vuex)
 
+const conf = {
+	imageHost : ''
+}
+
 const state = {
-	logined : true,
+	errMsg : '',
+	logined : false,
 	userInfo : {
-		studentId: '2015010622',
-		name: 'yeonon',
+		userId : -1,
+		studentId: '',
+		userName: '',
+		email: '',
+		avatar : '',
+		question : '',
+		answer	: '',
+		role	: -1,
+		createTime : '',
+		updateTime : '',
+		banned : '',
 	}
 }
 
