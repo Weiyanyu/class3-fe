@@ -46,20 +46,23 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 
 export default {
   name: '#app',
+  created: function() {
+    this.$store.dispatch('checkLogin')
+  },
   computed: {
-    isLogin() {
-      return this.$store.state.logined
-    },
-    userInfo() {
-      return this.$store.state.userInfo
-    }
+    ...mapGetters({
+      isLogin : 'isLogined',
+      userInfo : 'getUserInfo'
+    })
   },
   methods : {
     logout() {
-      this.$store.dispatch("logout")
+      this.$store.dispatch('logout')
+      this.$router.push('/')
     }
   }
 }

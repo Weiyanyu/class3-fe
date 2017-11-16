@@ -37,7 +37,7 @@
 <script>
 import _class from '../../util/class3'
 
-//表单验证
+import {mapGetters} from 'vuex'
 
 
 export default {
@@ -49,12 +49,13 @@ export default {
 		}
 	},
 	computed : {
-		errMsg() {
-			return this.$store.state.errMsg
-		}
+		...mapGetters({
+			errMsg : 'getErrMsg',
+		})
 	},
 	methods: {
 		login() {
+			const self = this;
 			const userInfo = {
 				studentId : this.studentId,
 				password	: this.password,
@@ -62,7 +63,6 @@ export default {
 			const validResult = this.formVaild(userInfo)
 			if (validResult.status) {
 				this.$store.dispatch("login", userInfo)
-				this.$router.go(-1)
 			}
 			else {
 				this.$store.dispatch("error", validResult.msg)

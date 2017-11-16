@@ -20,4 +20,13 @@ export default {
 			error		:		reject
 		})
 	},
+
+	checkLogin : function(resolve, reject) {
+		_class3.requestAPI({
+			url			:		_class3.getServerUrl("/session"),
+			method		:		'GET',
+			success		:		resolve,
+			error		:		reject
+		})
+	},
 }
