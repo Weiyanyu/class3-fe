@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import router from '../router/index'
 
 const conf = {
 	serverHost: '',
@@ -12,10 +13,14 @@ export default {
 			url			: param.url || '',
 			dataType: param.type || 'json',
 			data		: param.data,
+			processData	: param.processData == false ? false : true,
 			success	: function (res) {
 				//请求成功
 				if (res.status === 0) {
 					typeof param.success === 'function' && param.success(res.data, res.msg);
+				}
+				else if (res.status === 10) {
+					router.push('/login')
 				}
 				//服务器请求成功，但是存在请求参数或者服务器异常等情况
 				else if (res.status === 1) {

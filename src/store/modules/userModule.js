@@ -18,7 +18,8 @@ const state = {
 		role	: -1,
 		createTime : '',
 		updateTime : '',
-		banned : '',
+        banned : '',
+        profile : '',
 	}
 }
 
@@ -26,6 +27,7 @@ const getters = {
     isLogined : state => state.logined,
     getUserInfo : state => state.userInfo,
     getErrMsg : state => state.errMsg,
+    getUserId : state => state.userInfo ? state.userInfo.userId : -1
 }
 
 //actions
@@ -43,7 +45,7 @@ const actions = {
         _user.login(userInfo, function(res) {
             commit(types.LOGIN, res)
             //这里尝试各种办法，没有想到很好的办法，只能在action里处理跳转了
-            router.go(-1)
+            router.push('/')
         }, function(err) {
             commit(types.ERROR, err)
         })
@@ -58,6 +60,41 @@ const actions = {
         })
     },
     
+    //更新用户信息
+    updateUserInfo({commit, dispatch}, userInfo) {
+        _user.updateUserInfo(userInfo, function(res) {
+            dispatch('getUserInfo')
+        }, function(err) {
+            commit(types.ERROR, err)
+        })
+    },
+
+    //获取用户信息
+    getUserInfo({commit}) {
+        _user.getUserInfo(function(res) {
+            commit(types.UPDATE_INFO, res)
+        }, function(err) {
+            commit(types.ERROR, err)
+        })
+    },
+
+    //上传头像
+    uploadAvatar({commit}, avatar) {
+        _user.uploadAvatar(avatar, function(res) {
+            commit(types.UPLOAD_AVATAR, res)
+        }, function(err) {
+            commit(types.ERROR, err)
+        })
+    },
+
+    //使用旧密码更新密码
+    resetPwd({commit}, formData) {
+        _user.resetPwd(formData, function(res) {
+            commit(types.RESET_PWD)
+        }, function(err) {
+            commit(types.ERROR, err)
+        })
+    },
 
     //错误处理
     error({commit}, errMsg) {
@@ -71,11 +108,10 @@ const mutations = {
     [types.LOGOUT] (state) {
         state.logined = false
         state.userInfo = null
+        state.errMsg = ''
     },
     //登录
     [types.LOGIN] (state, res) {
-        res.createTime = _class3.TimeFormater(res.createTime)
-        res.updateTime = _class3.TimeFormater(res.updateTime)
         state.logined = true
         state.userInfo = res
         state.errMsg = ''
@@ -90,6 +126,22 @@ const mutations = {
             state.logined = true
             state.userInfo = res
         }
+    },
+
+    [types.UPDATE_INFO] (state, res) {
+        state.userInfo = res
+    },
+
+    [types.UPLOAD_AVATAR] (state, res) {
+        state.userInfo.avatar = res.url
+    },
+
+    [types.RESET_PWD] (state) {
+        state.logined = false
+        state.errMsg = ""
+        state.userInfo = null
+        router.push('/login')
+
     }
 }
 

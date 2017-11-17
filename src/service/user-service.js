@@ -29,4 +29,49 @@ export default {
 			error		:		reject
 		})
 	},
+
+	updateUserInfo : function(userInfo, resolve, reject) {
+		_class3.requestAPI({
+			url			:		_class3.getServerUrl("/personal"),
+			data		: 		userInfo,
+			method		:		'PUT',
+			success		:		resolve,
+			error		:		reject
+		})
+	},
+
+	getUserInfo : function(resolve, reject) {
+		_class3.requestAPI({
+			url			:		_class3.getServerUrl("/personal"),
+			method		:		'GET',
+			success		:		resolve,
+			error		:		reject
+		})
+	},
+
+	uploadAvatar : function(avatar, resolve, reject) {
+		_class3.requestAPI({
+			url			:		_class3.getServerUrl("/personal/avatar/upload"),
+			data		: 		avatar,
+			method		:		'POST',
+			success		:		resolve,
+			error		:		reject,
+			processData : 		false,
+			contentType : 		false,
+		})
+	},
+
+	resetPwd : function(formData, resolve, reject) {
+		_class3.requestAPI({
+			url			:		_class3.getServerUrl("/personal/password/update"),
+			data		: 	{
+				userId 			: formData.userId,
+				oldPassword : formData.oldPassword,
+				newPassword : formData.newPassword,
+			},
+			method		:		'POST',
+			success		:		resolve,
+			error			:		reject
+		})
+	},
 }

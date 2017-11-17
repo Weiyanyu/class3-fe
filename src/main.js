@@ -14,9 +14,6 @@ import router from './router'
 //导入Bootstrap
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
-
-
-
 Vue.use(VueResource)
 
 

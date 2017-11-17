@@ -20,7 +20,7 @@
         <ul class="nav navbar-nav pull-right">
           <li role="presentation" class="dropdown" v-if="isLogin">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <img class="avatar" src="./assets/logo.png"/> <span class="caret"></span>
+              <img class="avatar" :src="userInfo.avatar"/> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <li class="dropdown-header">已登录 : {{userInfo.userName}} ({{ userInfo.studentId }})</li>
