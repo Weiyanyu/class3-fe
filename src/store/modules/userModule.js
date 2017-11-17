@@ -82,6 +82,7 @@ const actions = {
     uploadAvatar({commit}, avatar) {
         _user.uploadAvatar(avatar, function(res) {
             commit(types.UPLOAD_AVATAR, res)
+            
         }, function(err) {
             commit(types.ERROR, err)
         })

@@ -14,6 +14,7 @@ export default {
 			dataType: param.type || 'json',
 			data		: param.data,
 			processData	: param.processData == false ? false : true,
+			contentType : param.contentType == false ? false : "application/x-www-form-urlencoded",
 			success	: function (res) {
 				//请求成功
 				if (res.status === 0) {

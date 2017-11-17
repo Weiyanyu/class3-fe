@@ -96,9 +96,9 @@ export default {
 				profile		: this.profile,
 				avatar		: this.$store.getters.getUserInfo.avatar
 			}
-			this.$store.dispatch('updateUserInfo', userInfo)
-			this.$store.dispatch('logout')
-			this.$router.push('/')
+			const self = this
+			this.$store.dispatch('updateUserInfo', userInfo)		
+			
 		},
 		handleChangeFile(e) {
 			const self = this
