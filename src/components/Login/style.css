@@ -121,4 +121,16 @@
     .form-horizontal .btn{
         padding: 10px 20px;
     }
-}    
+} 
+
+/*过渡效果*/
+.login-enter-active {
+    transition: opacity 1s
+  }
+.login-leave-active {
+      transition: opacity .5s
+  }
+  
+.login-enter, .login-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+    opacity: 0
+}

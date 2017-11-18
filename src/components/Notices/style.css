@@ -1,0 +1,15 @@
+.topics {
+  /* margin: 0 55px; */
+  position: relative;
+  left: 55px;
+  margin-bottom: 20px;
+}
+.topics .btn {
+  margin-right: 50px;
+  padding: 20px 55px;
+}
+
+.notices {
+  padding: 20px 55px 0;
+  border-top: 1px solid #ccc;
+}

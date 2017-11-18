@@ -14,9 +14,6 @@
 	height: 200px;
 }
 
-
-
-
 .user-info .user-info-text {
 	float: left;
 	margin-left: 50px;
@@ -43,8 +40,8 @@
 }
 
 .active-wrap {
-	position: absolute;
-	top: 320px;
+	position: relative;
+	top: 20px;
 	width: 1170px;
 	padding-right: 15px;
 }
@@ -81,4 +78,16 @@
 .user-active .detail-con img{
     display: block;
     margin: 0 auto;
+}
+
+
+.userCenter-enter-active {
+  transition: opacity 1s
+}
+.userCenter-leave-active {
+	transition: opacity .5s
+}
+
+.userCenter-enter, .userCenter-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0
 }

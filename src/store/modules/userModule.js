@@ -126,15 +126,18 @@ const mutations = {
         if (res) {
             state.logined = true
             state.userInfo = res
+            state.errMsg = ""
         }
     },
 
     [types.UPDATE_INFO] (state, res) {
         state.userInfo = res
+        state.errMsg = ""
     },
 
     [types.UPLOAD_AVATAR] (state, res) {
         state.userInfo.avatar = res.url
+        state.errMsg = ""
     },
 
     [types.RESET_PWD] (state) {

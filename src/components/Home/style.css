@@ -1,0 +1,15 @@
+
+
+
+/*过渡效果*/
+.home-enter-active{
+  transition: opacity 1s
+}
+
+.home-leave-active {
+  transition: opacity .5s
+}
+
+.home-enter, .home-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0
+}

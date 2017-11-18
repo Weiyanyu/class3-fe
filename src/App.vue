@@ -16,6 +16,7 @@
         <ul class="nav navbar-nav">
           <li><router-link to="/">首页</router-link></li>
           <li><router-link to="/user-center">用户中心</router-link></li>
+          <li><router-link to="/notices">所有通知</router-link></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
           <li role="presentation" class="dropdown" v-if="isLogin">
@@ -30,8 +31,7 @@
               <li><a class="dropdown-item" @click="logout()">退出登录</a></li>
             </ul>
           </li>
-          <li v-if="!isLogin"><router-link to="/login">登录</router-link></li>
-          <li v-if="!isLogin"><router-link to="/register">注册</router-link></li>
+          <router-link to="/login"><button class="btn btn-default login"v-if="!isLogin">登录</button></router-link>
         </ul>
       </div>
     </div>
@@ -69,6 +69,10 @@ export default {
 </script>
 
 <style>
+html {
+  overflow: scroll;
+}
+
 .avatar {
   width: 20px;
   height: 20px;
@@ -79,4 +83,9 @@ export default {
 .dropdown-item {
   cursor: pointer;
 }
+.login {
+  position: relative;
+  top: 8px;
+}
+
 </style>
