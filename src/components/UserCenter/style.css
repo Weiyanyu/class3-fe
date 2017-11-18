@@ -85,9 +85,9 @@
   transition: opacity 1s
 }
 .userCenter-leave-active {
-	transition: opacity .5s
+	transition: opacity .1s
 }
 
-.userCenter-enter, .userCenter-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+.userCenter-enter, .userCenter-leave-to {
   opacity: 0
 }

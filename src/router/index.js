@@ -12,8 +12,9 @@ import ResetPassword from '../components/ResetPass/ResetPassword'
 import UserComments from '../components/UserCenter/UserComment'
 import UserDetails from '../components/UserCenter/UserDetails'
 
-//通知模块
-import Notices from '../components/Notices/Notices'
+//主题模块
+import Topics from '../components/Topic/Topics'
+import Notices from '../components/Topic/Notices'
 
 
 
@@ -42,7 +43,11 @@ const router = new Router({
     component: ResetPassword
   }, {
     path: '/notices',
-    component: Notices
+    component: Topics,
+    children: [{
+      path: ':id',
+      component: Notices
+    }],
   }]
 })
 

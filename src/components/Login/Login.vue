@@ -29,8 +29,6 @@
 			</div>
 		</div>
 	</transition>
-
-
 </template>
 
 <style>

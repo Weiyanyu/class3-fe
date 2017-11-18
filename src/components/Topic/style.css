@@ -1,0 +1,37 @@
+.topics {
+  /* margin: 0 55px; */
+  position: relative;
+  left: 55px;
+  margin-bottom: 20px;
+}
+.topics .btn {
+  margin-right: 23px;
+  padding: 20px 55px;
+}
+
+.notices {
+  padding: 20px 55px 0;
+  border-top: 1px solid #ccc;
+}
+
+.tips {
+  position: relative;
+  left: 55px;
+}
+
+.go-detail {
+  float: right;
+}
+
+/*过渡效果*/
+.notice-enter-active {
+  transition: opacity 1s
+}
+
+.notice-leave-active {
+  transition: opacity .1s
+}
+
+.notice-enter, .notice-leave-to {
+  opacity: 0
+}
