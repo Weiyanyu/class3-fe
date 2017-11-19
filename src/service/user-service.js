@@ -2,7 +2,7 @@ import _class3 from '../util/class3'
 
 export default {
 	//登录
-	login 	: function(userInfo, resolve, reject) {
+	login(userInfo, resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/session"),
 			data		: 		userInfo,
@@ -12,7 +12,7 @@ export default {
 		})
 	},
 
-	logout	:	function(resolve, reject) {
+	logout(resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/session"),
 			method		:		'DELETE',
@@ -21,7 +21,7 @@ export default {
 		})
 	},
 
-	checkLogin : function(resolve, reject) {
+	checkLogin(resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/session"),
 			method		:		'GET',
@@ -30,7 +30,7 @@ export default {
 		})
 	},
 
-	updateUserInfo : function(userInfo, resolve, reject) {
+	updateUserInfo(userInfo, resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/personal"),
 			data		: 		userInfo,
@@ -40,7 +40,7 @@ export default {
 		})
 	},
 
-	getUserInfo : function(resolve, reject) {
+	getUserInfo(resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/personal"),
 			method		:		'GET',
@@ -49,7 +49,7 @@ export default {
 		})
 	},
 
-	uploadAvatar : function(avatar, resolve, reject) {
+	uploadAvatar(avatar, resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/personal/avatar/upload"),
 			data		: 		avatar,
@@ -61,7 +61,7 @@ export default {
 		})
 	},
 
-	resetPwd : function(formData, resolve, reject) {
+	resetPwd(formData, resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/personal/password/update"),
 			data		: 	{
@@ -70,6 +70,15 @@ export default {
 				newPassword : formData.newPassword,
 			},
 			method		:		'POST',
+			success		:		resolve,
+			error			:		reject
+		})
+	},
+
+	getothersInfo(othersId, resolve, reject) {
+		_class3.requestAPI({
+			url			:		_class3.getServerUrl("/users/" + othersId),
+			method		:		'GET',
 			success		:		resolve,
 			error			:		reject
 		})

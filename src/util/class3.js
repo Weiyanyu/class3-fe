@@ -50,9 +50,15 @@ export default {
 			return /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(value)
 		}
 	},
-	TimeFormater : function(timestamp) {
+	TimeFormater : function() {
 		const crDate = new Date()
-		crDate.setTime(timestamp)
-		return crDate.toLocaleString()
+		var newTime = ''
+		newTime += crDate.getFullYear() + '-'
+		newTime += crDate.getMonth() + 1 + '-'
+		newTime += crDate.getDate() + ' ',
+		newTime += crDate.getHours() + ":"
+		newTime += crDate.getMinutes() < 10 ? '0' + crDate.getMinutes() + ":" : crDate.getMinutes() + ":"
+		newTime += crDate.getSeconds() < 10 ? '0' + crDate.getSeconds() : crDate.getSeconds()
+		return newTime
 	}
 }

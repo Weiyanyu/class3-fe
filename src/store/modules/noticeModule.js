@@ -1,5 +1,6 @@
 import * as types from '../mutation-types'
 import _notice from '../../service/notice-service'
+import _comment from '../../service/comment-service'
 import router from '../../router'
 import _class3 from '../../util/class3'
 
@@ -11,6 +12,8 @@ const state = {
   hasPreviousPage : false,
   hasNextPage : false,
   mainImage : '',
+  detail : {},
+  comment : [],
 }
 
 //getter
@@ -22,7 +25,9 @@ const getters = {
       hasPreviousPage : state.hasPreviousPage,
       hasNextPage : state.hasNextPage
     }
-  }
+  },
+  getDetail : state => state.detail,
+  getCommentListVo : state => state.detail.commentDetailVoList
 }
 
 const actions = {
@@ -33,6 +38,22 @@ const actions = {
 
     })
   },
+
+  getNoticeDetail({commit}, noticeId) {
+    _notice.getNoticeDetail(noticeId, function(res) {
+      commit(types.GET_NOTICE_DETAIL, res)
+    }, function(err) {
+
+    })
+  },
+
+  addComment({commit}, comment) {
+    _comment.addComment(comment, function(res) {
+
+    }, function(err) {
+      
+    }) 
+  }
 }
 
 const mutations = {
@@ -42,6 +63,10 @@ const mutations = {
     state.hasPreviousPage = res.hasPreviousPage
     state.pageNum = res.pageNum
   },
+
+  [types.GET_NOTICE_DETAIL] (state, res) {
+    state.detail = res
+  }
 }
 
 export default {

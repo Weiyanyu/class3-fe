@@ -1,15 +1,33 @@
 <template>
   <div class="wrap">
-    <div class="jumbotron">
-      <p>...</p>
-      <p>...</p>
-    </div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Notices"
+  name: "Notices",
+
 }
 </script>
+
+<style>
+.comment-header {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.c-user-name {
+  padding-left: 10px;
+}
+
+.c-user {
+  color: #337ab7;
+}
+
+.c-user:hover {
+  text-decoration: none;
+  color: #337ab7;
+}
+</style>
+

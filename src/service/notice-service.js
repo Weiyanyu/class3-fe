@@ -2,7 +2,6 @@ import _class from '../util/class3'
 
 export default {
   getNoticeList(id, pageNum, resolve, reject) {
-    console.log('pageNum ' + pageNum)
     _class.requestAPI({
       url       : _class.getServerUrl('/notices/'),
       method		:		'GET',
@@ -13,5 +12,14 @@ export default {
 			success		:		resolve,
 			error		  :		reject
     })
-  }
+  },
+
+  getNoticeDetail(id, resolve, reject) {
+    _class.requestAPI({
+      url       : _class.getServerUrl('/notices/' + id),
+      method		:		'GET',
+			success		:		resolve,
+			error		  :		reject
+    })
+  },
 }

@@ -7,10 +7,11 @@ export const CHECK_LOGIN = 'CHECK_LOGIN'
 export const UPDATE_INFO = 'UPDATE_INFO'
 export const UPLOAD_AVATAR = 'UPLOAD_AVATAR'
 export const RESET_PWD = 'RESET_PWD'
+export const OTHERS_INFO = 'OTHERS_INFO'
 
 //通知信息相关
 export const GET_NOTICE_LIST = 'GET_NOTICE_LIST'
-export const GET_NOTICE_LIST_BY_ID = 'GET_NOTICE_LIST_BY_ID'
+export const GET_NOTICE_DETAIL = 'GET_NOTICE_DETAIL'
 
 //主题相关
 export const GET_TOPIC_LIST = 'GET_TOPIC_LIST'

@@ -20,14 +20,22 @@ const state = {
 		updateTime : '',
         banned : '',
         profile : '',
-	}
+    },
+    othersInfo : {
+        userId : -1,
+        studentId : '',
+        userName : '',
+        avatar  : '',
+        profile : '',
+    }
 }
 
 const getters = {
     isLogined : state => state.logined,
     getUserInfo : state => state.userInfo,
     getErrMsg : state => state.errMsg,
-    getUserId : state => state.userInfo ? state.userInfo.userId : -1
+    getUserId : state => state.userInfo ? state.userInfo.userId : -1,
+    getOthers : state => state.othersInfo,
 }
 
 //actions
@@ -97,6 +105,15 @@ const actions = {
         })
     },
 
+    //获取其他用户的信息（仅仅可以公开的信息）
+    getOthersInfo({commit}, othersId) {
+        _user.getothersInfo(othersId, function(res) {
+            commit(types.OTHERS_INFO, res)
+        }, function(err) {
+
+        })
+    },
+
     //错误处理
     error({commit}, errMsg) {
         commit(types.ERROR, errMsg)
@@ -145,7 +162,10 @@ const mutations = {
         state.errMsg = ""
         state.userInfo = null
         router.push('/login')
+    },
 
+    [types.OTHERS_INFO] (state, res) {
+        state.othersInfo = res
     }
 }
 
