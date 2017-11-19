@@ -1,15 +1,21 @@
 <template>
-	<transition name="userCenter" mode="in-out">
+	<transition name="userCenter">
 		<div class="wrap">
-			<div class="info-wrap">
-				<div class="user-info">
-					<img class="user-avatar" v-if="userInfo" :src="userInfo.avatar" alt="">
-					<div class="user-info-text">
-						<p class="text user-name" v-if="userInfo">{{userInfo.userName}}</p>
-						<p class="user-profile" v-if="userInfo">
-							个人简介 ： {{userInfo.profile}}
-						</p>
-						<span class="text btn btn-primary" data-toggle="modal" data-target="#editProfile">编辑个人资料</span>
+
+			<div class="panel panel-warning">
+				<div class="panel-heading">{{userInfo.userName}}
+					<span class="edit-profile btn btn-primary" data-toggle="modal" data-target="#editProfile">编辑个人资料</span>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-6 col-md-3">
+							<a href="#" class="thumbnail">
+								<img src="../../assets/logo.png" alt="...">
+							</a>
+						</div>
+						<p>个人简介 ： </p>
+						<span>&#12288;&#12288;{{userInfo.profile}}
+						</span>
 					</div>
 				</div>
 			</div>
@@ -23,6 +29,7 @@
 					</div>
 					<div class="detail-con">
 						<router-view></router-view>
+						
 					</div>
 				</div>
 			</div>

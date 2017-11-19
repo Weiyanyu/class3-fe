@@ -35,13 +35,16 @@
       </div>
     </div>
     <h3>你可以在下面输入你的想法：</h3>
-    <div class="comment-edit">
+    <!-- <div class="comment-edit">
       <form>
         <div class="form-group">
           <textarea v-model="newCommentText" class="form-control" rows="6"></textarea>
         </div>
         <button type="submit" class="btn btn-default" @click="addComment">提交评论</button>
       </form>
+    </div> -->
+    <div id="comment-editor">
+      
     </div>
   </div>
 
@@ -50,6 +53,7 @@
 <script>
 import {mapGetters} from 'vuex'
 import _class from '../../util/class3'
+
 
 export default {
   name: "NoticesDetail",
