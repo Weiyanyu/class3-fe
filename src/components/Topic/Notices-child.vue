@@ -12,7 +12,7 @@
       <div v-bind:id="'collapse' + index" class="panel-collapse collapse in">
         <div class="panel-body">
           {{item.brief}}
-          <router-link to="/notices/"><span class="go-detail btn btn-default">查看详情</span></router-link>
+          <router-link :to="'/notices/' + item.noticeId" ><span class="go-detail btn btn-default">查看详情</span></router-link>
         </div>
       </div>
     </div>
@@ -23,9 +23,6 @@
 import {mapGetters} from 'vuex'
 
 export default {
-  created() {
-    console.log('wocao')
-  },
   name: "Notices",
   computed : {
     ...mapGetters({

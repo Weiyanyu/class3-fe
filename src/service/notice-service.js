@@ -1,21 +1,14 @@
 import _class from '../util/class3'
 
 export default {
-  getNoticeAllList(resolve, reject) {
-    _class.requestAPI({
-      url       : _class.getServerUrl('/notices/'),
-			method		:		'GET',
-			success		:		resolve,
-			error		  :		reject
-    })
-  },
-
-  getNoticeList(id, resolve, reject) {
+  getNoticeList(id, pageNum, resolve, reject) {
+    console.log('pageNum ' + pageNum)
     _class.requestAPI({
       url       : _class.getServerUrl('/notices/'),
       method		:		'GET',
       data      : {
-        topicId  : id
+        topicId   : id,
+        pageNum   : pageNum,
       },
 			success		:		resolve,
 			error		  :		reject

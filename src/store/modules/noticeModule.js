@@ -8,10 +8,6 @@ const state = {
   errMsg : '',
   list: [],
   pageNum : 1,
-  pageSize : 10,
-  size : 2,
-  isFirstPage : true,
-  isLastPage : true,
   hasPreviousPage : false,
   hasNextPage : false,
   mainImage : '',
@@ -19,35 +15,33 @@ const state = {
 
 //getter
 const getters = {
-  getNotices : state => state.list
+  getNotices : state => state.list,
+  getPagination : function(state) {
+    return {
+      pageNum : state.pageNum,
+      hasPreviousPage : state.hasPreviousPage,
+      hasNextPage : state.hasNextPage
+    }
+  }
 }
 
 const actions = {
-  //获取整个列表
-  getNoticeList({commit}) {
-    _notice.getNoticeAllList(function(res) {
+  getNotices({commit}, param) {
+    _notice.getNoticeList(param.id, param.pageNum, function(res) {
       commit(types.GET_NOTICE_LIST, res)
     }, function(err) {
 
     })
   },
-  getNoticeListById({commit}, id) {
-    _notice.getNoticeList(id, function(res) {
-      commit(types.GET_NOTICE_LIST_BY_ID, res)
-    }, function(err) {
-
-    })
-  }
 }
 
 const mutations = {
   [types.GET_NOTICE_LIST] (state, res) {
     state.list = res.list
+    state.hasNextPage = res.hasNextPage
+    state.hasPreviousPage = res.hasPreviousPage
+    state.pageNum = res.pageNum
   },
-
-  [types.GET_NOTICE_LIST_BY_ID] (state, res) {
-    state.list = res.list
-  }
 }
 
 export default {

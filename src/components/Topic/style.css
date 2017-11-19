@@ -35,3 +35,8 @@
 .notice-enter, .notice-leave-to {
   opacity: 0
 }
+
+/*分页*/
+.footer-pagination {
+  margin: 0 55px;
+}

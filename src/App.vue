@@ -16,7 +16,7 @@
         <ul class="nav navbar-nav">
           <li><router-link to="/">首页</router-link></li>
           <li><router-link to="/user-center">用户中心</router-link></li>
-          <li><router-link to="/notices/all">所有通知</router-link></li>
+          <li><router-link to="/topics/all">所有通知</router-link></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
           <li role="presentation" class="dropdown" v-if="isLogin">

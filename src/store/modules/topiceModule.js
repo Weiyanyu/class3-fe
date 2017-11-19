@@ -7,6 +7,7 @@ import _class3 from '../../util/class3'
 const state = {
   errMsg : '',
   list: [],
+
 }
 
 //getter
