@@ -1,4 +1,4 @@
-.panel-heading {
+.user-center .panel-heading {
 	text-align: center;
 	font-size: 20px;
 }
@@ -7,7 +7,7 @@
 	position: relative;
 	float: right;
 }
-.panel-body {
+.user-center .panel-body {
 	font-size: 18px;
 }
 

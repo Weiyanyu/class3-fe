@@ -6,10 +6,11 @@
 }
 .topics .btn {
   margin-right: 23px;
+  margin-bottom: 10px;
   padding: 20px 55px;
 }
 
-.notices {
+.topic-notices {
   padding: 20px 55px 0;
   border-top: 1px solid #ccc;
 }
@@ -33,6 +34,20 @@
 }
 
 .notice-enter, .notice-leave-to {
+  opacity: 0
+}
+
+
+
+.topic-enter-active {
+  transition: opacity 1s
+}
+
+.topic-leave-active {
+  transition: opacity .1s
+}
+
+.topic-enter, .topic-leave-to {
   opacity: 0
 }
 

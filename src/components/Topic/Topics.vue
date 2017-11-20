@@ -1,4 +1,5 @@
 <template>
+<transition name="topic">
   <div class="wrap">
     <div class="topics btn-groups" v-if="topicList">
       <router-link :to="'/topics/all'"><button @click="getNotices(null, 1)" type="button" class="btn btn-danger btn-lg w">所有通知</button></router-link>
@@ -18,6 +19,8 @@
       </ul>
     </nav>
   </div>
+</transition>
+
 </template>
 
 <script>

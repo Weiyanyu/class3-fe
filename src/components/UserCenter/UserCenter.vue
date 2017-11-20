@@ -1,7 +1,6 @@
 <template>
 	<transition name="userCenter">
-		<div class="wrap">
-
+		<div class="wrap user-center">
 			<div class="panel panel-warning">
 				<div class="panel-heading">{{userInfo.userName}}
 					<span class="edit-profile btn btn-primary" data-toggle="modal" data-target="#editProfile">编辑个人资料</span>

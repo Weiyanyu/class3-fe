@@ -1,5 +1,5 @@
 <template>
-  <div class="notices panel-group" id="accordion" v-if="noticeList">
+  <div class="panel-group topic-notices" id="accordion" v-if="noticeList">
     <div class="panel panel-default" v-for="(item, index) in noticeList" v-bind:key="index">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -12,7 +12,7 @@
       <div v-bind:id="'collapse' + index" class="panel-collapse collapse in">
         <div class="panel-body">
           {{item.brief}}
-          <router-link :to="'/notices/' + item.noticeId" ><span class="go-detail btn btn-default">查看详情</span></router-link>
+          <router-link target="_blank" :to="'/notices/' + item.noticeId" ><span class="go-detail btn btn-default">查看详情</span></router-link>
         </div>
       </div>
     </div>

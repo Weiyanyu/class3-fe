@@ -1,0 +1,45 @@
+.notices .panel-heading .meta-info {
+  position: relative;
+  top: -49px;
+  float: right;
+}
+
+.notices .panel-heading .panel-title {
+  font-size: 40px;
+}
+
+
+.create-user, .create-user:hover{
+  text-decoration: none;
+  color: white;
+  margin: 0px;
+  text-align: left;
+}
+
+.c-user-avatar {
+  width: 15px;
+  height: 15px;
+}
+
+.create-time, .update-time {
+  display: block;
+}
+
+.description .detail {
+  position: relative;
+  margin-top: 10px;
+}
+
+
+
+.noticeDetail-enter-active {
+  transition: opacity .5s
+}
+
+.noticeDetail-leave-active {
+  transition: opacity .1s
+}
+
+.noticeDetail-enter, .noticeDetail-leave-to {
+  opacity: 0
+}

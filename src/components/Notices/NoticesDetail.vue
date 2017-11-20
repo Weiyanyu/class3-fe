@@ -1,5 +1,5 @@
 <template>
-  <div class="heading">
+  <div class="heading notices">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h1 class="panel-title">{{detail.noticeTitle}}</h1>
@@ -27,44 +27,26 @@
           </div>
         </router-link>
         <div class="panel-body">
-          <p class="c-body">
-            {{item.commentDesc}}
+          <p v-html="item.commentDesc" class="c-body">
           </p>
           <span class="push-time">{{item.createTime}}</span>
         </div>
       </div>
     </div>
     <h3>你可以在下面输入你的想法：</h3>
-    <!-- <div class="comment-edit">
-      <form>
-        <div class="form-group">
-          <textarea v-model="newCommentText" class="form-control" rows="6"></textarea>
-        </div>
-        <button type="submit" class="btn btn-default" @click="addComment">提交评论</button>
-      </form>
-    </div> -->
-    <div id="comment-editor">
-      
-    </div>
+    
   </div>
 
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
-import _class from '../../util/class3'
-
 
 export default {
   name: "NoticesDetail",
   beforeCreate() {
     const noticeId = this.$route.params.id
     this.$store.dispatch('getNoticeDetail', noticeId)
-  },
-  data() {
-    return {
-      newCommentText : '',
-    }
   },
   watch: {
     detail: function(newDetail) {
@@ -79,66 +61,11 @@ export default {
       commentListVo : 'getCommentListVo'
     }),
   },
-  methods: {
-    addComment() {
-      const userInfo = this.$store.getters.getUserInfo
-      const newComment = {
-        userId : userInfo.userId,
-        userName : userInfo.userName,
-        userAvatar : userInfo.avatar,
-        noticeId : this.$store.getters.getDetail.noticeId,
-        commentDesc : this.newCommentText,
-        createTime : _class.TimeFormater()
-      }
-      this.$store.getters.getCommentListVo.push(newComment)
-      this.$store.dispatch('addComment', {
-        noticeId : newComment.noticeId,
-        description : newComment.commentDesc
-      })
-      this.newCommentText = ''
-    }
-  }
 }
 </script>
 
 <style>
-h2 {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.panel-heading .meta-info {
-  position: relative;
-  top: -49px;
-  float: right;
-}
-
-.panel-heading .panel-title {
-  font-size: 40px;
-}
-
-
-.create-user, .create-user:hover{
-  text-decoration: none;
-  color: white;
-  margin: 0px;
-  text-align: left;
-}
-
-.c-user-avatar {
-  width: 15px;
-  height: 15px;
-}
-
-.create-time, .update-time {
-  display: block;
-}
-
-.description .detail {
-  position: relative;
-  margin-top: 10px;
-}
-
+@import './style.css';
 </style>
 
 
