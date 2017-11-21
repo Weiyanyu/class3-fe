@@ -22,4 +22,13 @@ export default {
 			error		  :		reject
     })
   },
+
+  getNoticeListByUserId(userId, resolve, reject) {
+    _class.requestAPI({
+      url       : _class.getServerUrl('/notices/user/' + userId),
+      method		:		'GET',
+			success		:		resolve,
+			error		  :		reject
+    })
+  },
 }

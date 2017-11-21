@@ -10,7 +10,7 @@ import Login from '../components/Login/Login'
 import UserCenter from '../components/UserCenter/UserCenter'
 import ResetPassword from '../components/ResetPass/ResetPassword'
 import UserComments from '../components/UserCenter/UserComment'
-import UserDetails from '../components/UserCenter/UserDetails'
+import UserNotices from '../components/UserCenter/UserNotice'
 
 //主题模块
 import Topics from '../components/Topic/Topics'
@@ -32,14 +32,14 @@ const router = new Router({
     path: '/login',
     component: Login,
   }, {
-    path: '/user-center',
+    path: '/users/:id',
     component: UserCenter,
     children: [{
       path: 'comments',
       component: UserComments
     }, {
-      path: 'details',
-      component: UserDetails
+      path: 'notices',
+      component: UserNotices
     }]
   }, {
     path: '/reset-pwd',

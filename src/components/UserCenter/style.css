@@ -70,3 +70,14 @@
 .userCenter-enter, .userCenter-leave-to {
   opacity: 0
 }
+
+.detailContent-enter-active {
+	transition: opacity 1s
+}
+.detailContent-leave-active {
+	transition: opacity .1s
+}
+
+.detailContent-enter, .detailContent-leave-to {
+opacity: 0
+}

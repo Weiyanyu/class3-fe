@@ -2,7 +2,7 @@
 <transition name="topic">
   <div class="wrap">
     <div class="topics btn-groups" v-if="topicList">
-      <router-link :to="'/topics/all'"><button @click="getNotices(null, 1)" type="button" class="btn btn-danger btn-lg w">所有通知</button></router-link>
+      <router-link :to="'/topics/all'"><button @click="getNotices(null, 1)" type="button" class="btn btn-info btn-lg w">所有通知</button></router-link>
       <router-link :to="'/topics/' + topicList[0].id"><button @click="getNotices(topicList[0].id, 1)" type="button" class="btn btn-success btn-lg w">{{topicList[0].topicName}}</button></router-link>
       <router-link :to="'/topics/' + topicList[1].id"><button @click="getNotices(topicList[1].id, 1)" type="button" class="btn btn-info btn-lg w">{{topicList[1].topicName}}</button></router-link>
       <router-link :to="'/topics/' + topicList[2].id"><button @click="getNotices(topicList[2].id, 1)" type="button" class="btn btn-danger btn-lg w">{{topicList[2].topicName}}</button></router-link>

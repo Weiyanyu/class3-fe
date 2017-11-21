@@ -15,7 +15,6 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li><router-link to="/">首页</router-link></li>
-          <li><router-link to="/user-center">用户中心</router-link></li>
           <li><router-link to="/topics/all">所有通知</router-link></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
@@ -27,6 +26,7 @@
               <li class="dropdown-header">已登录 : {{userInfo.userName}} ({{ userInfo.studentId }})</li>
               <li class="divider"></li>
               <li class="dropdown-header">账号管理</li>
+              <li><router-link :to="'/users/' + (userInfo !== null ? userInfo.userId : '-1')">用户中心</router-link></li>
               <li><router-link to="/reset-pwd">修改密码</router-link></li>
               <li><a class="dropdown-item" @click="logout()">退出登录</a></li>
             </ul>

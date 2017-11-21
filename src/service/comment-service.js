@@ -14,4 +14,16 @@ export default {
     })
   },
 
+  getCommentListByUserId(userId, resolve, reject) {
+    _class.requestAPI({
+      url       : _class.getServerUrl('/comments/'),
+      method		:		'GET',
+      data      : {
+        userId : userId,
+      },
+			success		:		resolve,
+			error		  :		reject
+    })
+  },
+
 }

@@ -40,6 +40,9 @@
 
 <script>
 export default {
+  created() {
+    this.$store.dispatch('getUserInfo')
+  },
   data() {
     return {
       show : true

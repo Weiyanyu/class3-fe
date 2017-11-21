@@ -13,6 +13,7 @@ export default {
 			url			: param.url || '',
 			dataType: param.type || 'json',
 			data		: param.data,
+			cache   : param.cache == false ? false : true,
 			processData	: param.processData == false ? false : true,
 			contentType : param.contentType == false ? false : "application/x-www-form-urlencoded",
 			success	: function (res) {

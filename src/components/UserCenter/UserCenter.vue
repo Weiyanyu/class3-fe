@@ -2,19 +2,24 @@
 	<transition name="userCenter">
 		<div class="wrap user-center">
 			<div class="panel panel-warning">
-				<div class="panel-heading">{{userInfo.userName}}
-					<span class="edit-profile btn btn-primary" data-toggle="modal" data-target="#editProfile">编辑个人资料</span>
+				<div class="panel-heading">{{isMe ? userInfo.userName : otherInfo.userName}}
+					<span v-if="isMe" class="edit-profile btn btn-primary" data-toggle="modal" data-target="#editProfile">编辑个人资料</span>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-6 col-md-3">
 							<a href="#" class="thumbnail">
-								<img src="../../assets/logo.png" alt="...">
+								<img :src="isMe ? userInfo.avatar : otherInfo.avatar">
 							</a>
+							<button class="btn btn-primary" type="button">
+							评论 <span class="badge">{{commentLen}}</span>
+							</button>
+							<button class="btn btn-primary" type="button">
+							通知 <span class="badge">{{noticeLen}}</span>
+							</button>
 						</div>
 						<p>个人简介 ： </p>
-						<span>&#12288;&#12288;{{userInfo.profile}}
-						</span>
+						<span>&#12288;&#12288;{{isMe ? userInfo.profile : otherInfo.profile}}</span>
 					</div>
 				</div>
 			</div>
@@ -22,13 +27,15 @@
 				<div class="user-active">
 					<div class="tab-content">
 						<ul class="tab-list">
-							<router-link to="/user-center/comments"><li class="tab-item comments">用户评论</li></router-link>
-							<router-link to="/user-center/details"><li class="tab-item details">详细信息</li></router-link>
+							<router-link :to="'/users/' + viewUserId + '/comments'"><li class="tab-item comments">我的评论</li></router-link>
+							<router-link :to="'/users/' + viewUserId + '/notices'"><li class="tab-item details">我的通知</li></router-link>
 						</ul>
 					</div>
 					<div class="detail-con">
-						<router-view></router-view>
-						
+						<transition name="detailContent" :key="key">
+							<router-view></router-view>
+						</transition>
+
 					</div>
 				</div>
 			</div>
@@ -78,13 +85,41 @@
 <script>
 import {mapGetters} from 'vuex'
 
-
-
 export default {
-	created() {
-		this.$store.dispatch('getUserInfo')
-	},
 	name: 'UserCenter',
+
+	mounted() {
+		console.log("重新渲染")
+		var userId = -1
+		if (this.isMe) {
+			userId = this.$store.getters.getUserInfo.userId
+		}
+		else {
+			userId = this.viewUserId
+			this.$store.dispatch('getOthersInfo', userId)
+		}
+		this.$store.dispatch('getCommentListByUserId', userId)
+		this.$store.dispatch('getNoticesByUserId', userId)
+	},
+
+	watch : {
+		isMe(newIsMe) {
+			console.log(newIsMe)
+			var userId = -1
+			if (newIsMe === true) {
+				userId = this.$store.getters.getUserInfo.userId
+				console.log("本人")
+			}
+			else {
+				console.log("他人")
+				userId = this.viewUserId
+				this.$store.dispatch('getOthersInfo', userId)
+			}
+			this.$store.dispatch('getCommentListByUserId', userId)
+			this.$store.dispatch('getNoticesByUserId', userId)
+		}
+	},
+
 	data() {
 		return {
 			userName : '',
@@ -93,8 +128,22 @@ export default {
 	},
 	computed : {
 		...mapGetters({
-			userInfo : 'getUserInfo'
+			userInfo : 'getUserInfo',
+			commentLen : 'getCommentListLen',
+			noticeLen : 'getNoticeListLen',
+			otherInfo : 'getOthers',
 		}),
+		viewUserId() {
+			return this.$route.params.id
+		},
+		isMe() {
+			console.log(this.$route.params.id)
+			console.log(this.$store.getters.getUserInfo.userId)
+			return (parseInt(this.$route.params.id) === this.$store.getters.getUserInfo.userId)
+		},
+		key() {
+      return this.$route.path.replace(/\//g, '_')
+    }
 	},
 	methods : {
 		updateUserInfo() {
@@ -106,7 +155,6 @@ export default {
 			const self = this
 			this.$store.dispatch('updateUserInfo', userInfo)
 			//因为后端头像图片文件名相同，所有这里得刷新一下当前界面，可能会出现卡顿
-			this.$router.go(0)
 		},
 		handleChangeFile(e) {
 			const self = this

@@ -35,6 +35,7 @@ export default {
 			url			:		_class3.getServerUrl("/personal"),
 			data		: 		userInfo,
 			method		:		'PUT',
+			cache : false,
 			success		:		resolve,
 			error		:		reject
 		})

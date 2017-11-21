@@ -27,7 +27,8 @@ const getters = {
     }
   },
   getDetail : state => state.detail,
-  getCommentListVo : state => state.detail.commentDetailVoList
+  getCommentListVo : state => state.detail.commentDetailVoList,
+  getNoticeListLen : state => state.list.length
 }
 
 const actions = {
@@ -42,6 +43,14 @@ const actions = {
   getNoticeDetail({commit}, noticeId) {
     _notice.getNoticeDetail(noticeId, function(res) {
       commit(types.GET_NOTICE_DETAIL, res)
+    }, function(err) {
+
+    })
+  },
+
+  getNoticesByUserId({commit}, userId) {
+    _notice.getNoticeListByUserId(userId, function(res) {
+      commit(types.GET_NOTICE_LIST_BY_USER_ID, res)
     }, function(err) {
 
     })
@@ -66,6 +75,10 @@ const mutations = {
 
   [types.GET_NOTICE_DETAIL] (state, res) {
     state.detail = res
+  },
+
+  [types.GET_NOTICE_LIST_BY_USER_ID] (state, res) {
+    state.list = res
   }
 }
 

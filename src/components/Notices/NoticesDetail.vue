@@ -18,7 +18,7 @@
       </div>
     </div>
     <h2>用户评论：</h2>
-    <div class="comments" v-if="commentListVo.length > 0">
+    <div class="comments" v-if="commentListVo">
       <div class="panel panel-default" v-for="(item, index) in commentListVo" :key="index">
         <router-link class="c-user" :to="'/users/' + item.userId">
           <div class="comment-header">
