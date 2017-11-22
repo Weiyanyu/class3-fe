@@ -5,7 +5,7 @@ import _class3 from '../../util/class3'
 
 //state
 const state = {
-  errMsg : '',
+  commentErrMsg : '',
   list : [],
 }
 

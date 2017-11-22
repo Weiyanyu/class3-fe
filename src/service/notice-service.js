@@ -31,4 +31,26 @@ export default {
 			error		  :		reject
     })
   },
+
+  uploadFileInNotice(file, resolve, reject) {
+    _class.requestAPI({
+      url       : _class.getServerUrl('/manage/notices/upload_file'),
+      method		:		'POST',
+      data : {
+        noticeFile : file,
+      },
+			success		:		resolve,
+			error		  :		reject
+    })
+  },
+
+  addNotice(newNotice, resolve, reject) {
+    _class.requestAPI({
+      url       : _class.getServerUrl('/manage/notices/'),
+      method		:		'POST',
+      data : newNotice,
+			success		:		resolve,
+			error		  :		reject
+    })
+  },
 }

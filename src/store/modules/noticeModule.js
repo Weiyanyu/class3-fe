@@ -6,7 +6,7 @@ import _class3 from '../../util/class3'
 
 //state
 const state = {
-  errMsg : '',
+  noticeErrMsg : '',
   list: [],
   pageNum : 1,
   hasPreviousPage : false,
@@ -28,7 +28,8 @@ const getters = {
   },
   getDetail : state => state.detail,
   getCommentListVo : state => state.detail.commentDetailVoList,
-  getNoticeListLen : state => state.list.length
+  getNoticeListLen : state => state.list.length,
+  getNoticeErrMsg : state => state.noticeErrMsg
 }
 
 const actions = {
@@ -58,10 +59,31 @@ const actions = {
 
   addComment({commit}, comment) {
     _comment.addComment(comment, function(res) {
-
+      
     }, function(err) {
       
     }) 
+  },
+
+
+  uploadNoticeFile({commit}, file) {
+    _notice.uploadFileInNotice(file, function(res) {
+
+    }, function(err) {
+
+    })
+  },
+
+  addNotice({commit}, newNotice) {
+    _notice.addNotice(newNotice, function(res) {
+      commit(types.ADD_NOTICE)
+    }, function(err) {
+      commit(types.NOTICE_ERR, err)
+    })
+  },
+
+  formValidErr({commit}, err) {
+    commit(types.NOTICE_ERR, err)
   }
 }
 
@@ -79,6 +101,14 @@ const mutations = {
 
   [types.GET_NOTICE_LIST_BY_USER_ID] (state, res) {
     state.list = res
+  },
+
+  [types.ADD_NOTICE] (state) {
+    state.noticeErrMsg = ''
+  },
+
+  [types.NOTICE_ERR] (state, err) {
+    state.noticeErrMsg = err
   }
 }
 

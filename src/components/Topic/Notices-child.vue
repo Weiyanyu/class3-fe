@@ -11,8 +11,8 @@
       </div>
       <div v-bind:id="'collapse' + index" class="panel-collapse collapse in">
         <div class="panel-body">
-          {{item.brief}}
-          <router-link target="_blank" :to="'/notices/' + item.noticeId" ><span class="go-detail btn btn-default">查看详情</span></router-link>
+          <p v-html="item.brief"></p>
+          <router-link :to="'/notices/' + item.noticeId" ><span class="go-detail btn btn-default">查看详情</span></router-link>
         </div>
       </div>
     </div>

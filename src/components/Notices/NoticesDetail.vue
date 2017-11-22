@@ -13,8 +13,7 @@
           <span class="update-time">更新时间 : {{detail.updateTime}}</span>
         </div>
       </div>
-      <div class="panel-body">
-        {{detail.noticeDesc}}
+      <div class="panel-body" v-html="detail.noticeDesc">
       </div>
     </div>
     <h2>用户评论：</h2>

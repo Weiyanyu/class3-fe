@@ -19,7 +19,7 @@ import NoticesChild from '../components/Topic/Notices-child'
 //notice
 import NoticeDetail from '../components/Notices/NoticesDetail'
 import Notices      from '../components/Notices/Notices'
-
+import AdminNotice from '../components/Admin-Notice/Admin-Notice'
 
 
 Vue.use(Router)
@@ -58,6 +58,9 @@ const router = new Router({
       path: ':id',
       component: NoticeDetail
     }]
+  }, {
+    path: '/admin-notices',
+    component: AdminNotice,
   }]
 })
 
