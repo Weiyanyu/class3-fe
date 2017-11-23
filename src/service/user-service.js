@@ -7,6 +7,7 @@ export default {
 			url			:		_class3.getServerUrl("/session"),
 			data		: 		userInfo,
 			method		:		'POST',
+			withCredentials : true,
 			success		:		resolve,
 			error		:		reject
 		})
@@ -16,6 +17,7 @@ export default {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/session"),
 			method		:		'DELETE',
+			withCredentials : true,
 			success		:		resolve,
 			error		:		reject
 		})
@@ -25,6 +27,7 @@ export default {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/session"),
 			method		:		'GET',
+			withCredentials : true,
 			success		:		resolve,
 			error		:		reject
 		})
