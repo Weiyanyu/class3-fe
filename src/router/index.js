@@ -25,6 +25,7 @@ import AdminNotice from '../components/Admin-Notice/Admin-Notice'
 Vue.use(Router)
 
 const router = new Router({
+  base: '/',
   routes : [{
     path: '/',
     component: Home,
