@@ -1,9 +1,31 @@
 
 
 
+.home-background {
+  position: absolute; 
+  top:0; 
+  left:0; 
+  bottom:0; 
+  right:0; 
+  z-index:-1; 
+}
+
+.home-background  .home-img {
+  height:100%; 
+  width:100%; 
+  border:0; 
+}
+
+.welcome-info .jumbotron {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+
+
 /*过渡效果*/
 .home-enter-active{
-  transition: opacity 1s
+  transition: opacity .3s
 }
 
 .home-leave-active {

@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
   <!-- 导航栏 -->
-  <nav class="navbar navbar-inverse header">
+  <nav class="navbar navbar-default header">
     <div class="container">
       <div class="navbar-header">
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar">
@@ -41,7 +41,7 @@
     <router-view></router-view>
   </div>
 
-  <nav class="navbar navbar-inverse footer ">
+  <nav class="navbar navbar-inverse footer navbar-fixed-bottom">
     <div class="copyright">
       <p>&#12288;&#12288;&#12288;&#12288;Copyright © 2017 yeonon. 当前呈现版本 1.0</p>
       <span><a class="beian" href="http://www.miitbeian.gov.cn/">京ICP备17065514号</a></span>
@@ -78,9 +78,7 @@ export default {
 </script>
 
 <style>
-html {
-  overflow: scroll;
-}
+
 
 .avatar {
   width: 20px;
@@ -96,6 +94,24 @@ html {
   position: relative;
   top: 8px;
 }
+
+
+
+.header {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+} 
+
+.navbar-default.header .navbar-nav > li > a {
+  color: #aaa;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: rgba(0, 0, 0, 0);
+} 
+
+
+
 
 
 .footer .copyright {
