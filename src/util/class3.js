@@ -2,7 +2,7 @@ import $ from 'jquery'
 import router from '../router/index'
 
 const conf = {
-	serverHost: 'http://47.94.156.44:8080/',
+	serverHost: 'http://s.yeonon.top',
 }
 
 export default {

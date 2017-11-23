@@ -126,7 +126,7 @@ var sendFile = function(file, editor, welEditable) {
   var data = new FormData()
   data.append("noticeFile", file)
   $.ajax({
-    url : '/manage/notices/upload_file',
+    url : 'http://s.yeonon.top/manage/notices/upload_file',
     data : data,
     cache : false,
     contentType: false,  
@@ -169,7 +169,7 @@ export default {
     })
     //文件上传
     var oFileInput = new FileInput();
-    oFileInput.Init("txt_file", "/manage/files");
+    oFileInput.Init("txt_file", "http://s.yeonon.top/manage/files");
   },
 
   data() {
