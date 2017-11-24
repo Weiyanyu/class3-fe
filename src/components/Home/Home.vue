@@ -10,11 +10,7 @@
           <h1>Hello, World!</h1>
           <p>首页实在是想不到该说什么</p>
           <p>首页实在是想不到该说什么</p>
-          <p>首页实在是想不到该说什么</p>
-          <p>首页实在是想不到该说什么</p>
-          <p>首页实在是想不到该说什么</p>
-          <p>首页实在是想不到该说什么</p>
-          <p>首页实在是想不到该说什么</p>
+
           <router-link to="/topics/all"><p><a class="btn btn-primary btn-lg" role="button">去看看有哪些通知</a></p></router-link>
         </div>
       </div>

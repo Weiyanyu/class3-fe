@@ -41,7 +41,7 @@
     <router-view></router-view>
   </div>
 
-  <nav class="navbar navbar-inverse footer">
+  <nav class="navbar navbar-inverse footer navbar-fixed-bottom">
     <div class="copyright">
       <p>&#12288;&#12288;&#12288;&#12288;Copyright © 2017 yeonon. 当前呈现版本 1.0</p>
       <span><a class="beian" href="http://www.miitbeian.gov.cn/">京ICP备17065514号</a></span>
@@ -79,6 +79,9 @@ export default {
 
 <style>
 
+body {
+  padding-bottom: 70px;
+}
 
 .avatar {
   width: 20px;
@@ -95,9 +98,7 @@ export default {
   top: 8px;
 }
 
-
-
-.header {
+.navbar-default.header {
   background-color: rgba(0, 0, 0, 0);
   border: none;
 } 

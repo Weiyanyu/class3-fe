@@ -1,6 +1,4 @@
 
-
-
 .home-background {
   position: absolute; 
   top:0; 
@@ -20,10 +18,6 @@
   background-color: rgba(0, 0, 0, 0);
   color: white;
 }
-
-
-
-
 
 /*过渡效果*/
 .home-enter-active{
