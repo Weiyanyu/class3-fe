@@ -87,16 +87,21 @@ var FileInput = function() {
     control.fileinput({
       language: "zh", //设置语言
       uploadUrl: uploadUrl, //上传的地址
-      allowedFileExtensions: ["zip", "rar", "pptx", "pdf", "docx", "xlsx"], //接收的文件后缀
+      allowedFileExtensions: ["zip", "rar", "pptx", "pdf", "docx", "doc","xlsx"], //接收的文件后缀
       showUpload: true, //是否显示上传按钮
       showCaption: false, //是否显示标题
       browseClass: "btn btn-primary", //按钮样式
-      maxFileSize: 20480,//单位为kb，如果为0表示不限制文件大小
-      maxFileCount: 10, //表示允许同时上传的最大文件个数
+      maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+      maxFileCount: 1, //表示允许同时上传的最大文件个数
       enctype: "multipart/form-data",
       validateInitialCount: true,
       previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
       msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+      ajaxSettings: {
+        xhrFields : {
+          withCredentials : true,
+        },
+      }
     });
 
     //导入文件上传完成之后的事件
