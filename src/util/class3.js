@@ -13,7 +13,7 @@ export default {
 			url			: param.url || '',
 			dataType: param.type || 'json',
 			xhrFields : {
-				withCredentials : param.withCredentials == true ? true : false,
+				withCredentials : true,
 			},	
 			data		: param.data,
 			cache   : param.cache == false ? false : true,
