@@ -128,6 +128,9 @@ var sendFile = function(file, editor, welEditable) {
   $.ajax({
     url : 'http://s.yeonon.top/manage/notices/upload_file',
     data : data,
+    xhrFields : {
+      withCredentials : true,
+    },
     cache : false,
     contentType: false,  
     processData: false, 
