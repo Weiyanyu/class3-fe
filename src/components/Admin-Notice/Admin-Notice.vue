@@ -177,7 +177,7 @@ export default {
     })
     //文件上传
     var oFileInput = new FileInput();
-    oFileInput.Init("txt_file", "http://s.yeonon.top/manage/files");
+    oFileInput.Init("txt_file", "/manage/files");
   },
 
   data() {
