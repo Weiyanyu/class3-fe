@@ -131,7 +131,7 @@ var sendFile = function(file, editor, welEditable) {
   var data = new FormData()
   data.append("noticeFile", file)
   $.ajax({
-    url : 'http://s.yeonon.top/manage/notices/upload_file',
+    url : 'http://localhost:8081/manage/notices/upload_file',
     data : data,
     xhrFields : {
       withCredentials : true,

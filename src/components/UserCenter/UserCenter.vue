@@ -108,10 +108,8 @@ export default {
 			var userId = -1
 			if (newIsMe === true) {
 				userId = this.$store.getters.getUserInfo.userId
-				console.log("本人")
 			}
 			else {
-				console.log("他人")
 				userId = this.viewUserId
 				this.$store.dispatch('getOthersInfo', userId)
 			}
@@ -150,12 +148,14 @@ export default {
 			const userInfo = {
 				userName 	: this.userName ? this.userName : this.$store.getters.getUserInfo.userName,
 				profile		: this.profile ? this.profile : this.$store.getters.getUserInfo.profile,
-				avatar		: this.$store.getters.getUserInfo.avatar
+				avatar		: this.$store.getters.getUserInfo.avatar,
+				userId    : parseInt(this.$route.params.id),
 			}
 			const self = this
 			this.$store.dispatch('updateUserInfo', userInfo)
 			//因为后端头像图片文件名相同，所有这里得刷新一下当前界面，可能会出现卡顿
 		},
+
 		handleChangeFile(e) {
 			const self = this
 			let file = e.target.files[0]

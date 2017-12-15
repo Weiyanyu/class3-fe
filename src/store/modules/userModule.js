@@ -71,15 +71,15 @@ const actions = {
     //更新用户信息
     updateUserInfo({commit, dispatch}, userInfo) {
         _user.updateUserInfo(userInfo, function(res) {
-            dispatch('getUserInfo')
+            dispatch('getUserInfo', userInfo.userId)
         }, function(err) {
             commit(types.ERROR, err)
         })
     },
 
     //获取用户信息
-    getUserInfo({commit}) {
-        _user.getUserInfo(function(res) {
+    getUserInfo({commit}, userId) {
+        _user.getUserInfo(userId, function(res) {
             commit(types.UPDATE_INFO, res)
         }, function(err) {
             commit(types.ERROR, err)

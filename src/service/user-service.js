@@ -13,6 +13,7 @@ export default {
 		})
 	},
 
+	//登出
 	logout(resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/session"),
@@ -23,6 +24,7 @@ export default {
 		})
 	},
 
+	//检查是否登录
 	checkLogin(resolve, reject) {
 		_class3.requestAPI({
 			url			:		_class3.getServerUrl("/session"),
@@ -33,10 +35,15 @@ export default {
 		})
 	},
 
+	//更新用户信息
 	updateUserInfo(userInfo, resolve, reject) {
 		_class3.requestAPI({
-			url			:		_class3.getServerUrl("/personal"),
-			data		: 		userInfo,
+			url			:		_class3.getServerUrl("/users"),
+			data		: 		{
+				userName : userInfo.userName,
+				profile : userInfo.profile,
+				avatar : userInfo.avatar,
+			},
 			method		:		'PUT',
 			cache : false,
 			success		:		resolve,
@@ -44,9 +51,10 @@ export default {
 		})
 	},
 
-	getUserInfo(resolve, reject) {
+	//获取用户信息
+	getUserInfo(userId, resolve, reject) {
 		_class3.requestAPI({
-			url			:		_class3.getServerUrl("/personal"),
+			url			:		_class3.getServerUrl("/users/" + userId),
 			method		:		'GET',
 			success		:		resolve,
 			error		:		reject
@@ -55,7 +63,7 @@ export default {
 
 	uploadAvatar(avatar, resolve, reject) {
 		_class3.requestAPI({
-			url			:		_class3.getServerUrl("/personal/avatar/upload"),
+			url			:		_class3.getServerUrl("/users/avatar/upload"),
 			data		: 		avatar,
 			method		:		'POST',
 			success		:		resolve,
@@ -67,7 +75,7 @@ export default {
 
 	resetPwd(formData, resolve, reject) {
 		_class3.requestAPI({
-			url			:		_class3.getServerUrl("/personal/password/update"),
+			url			:		_class3.getServerUrl("/users/password/update"),
 			data		: 	{
 				userId 			: formData.userId,
 				oldPassword : formData.oldPassword,

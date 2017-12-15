@@ -32,9 +32,9 @@
 
 <script>
 export default {
-  created() {
-    this.$store.dispatch('getUserInfo')
-  },
+  // created() {
+  //   this.$store.dispatch('checkLogin')
+  // },
 }
 
 </script>
